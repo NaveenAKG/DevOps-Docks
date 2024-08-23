@@ -1,0 +1,3 @@
+These are Lambda functions used for insertion and deletion 
+from DynamoDB to use lambda functions first you create them
+and use these functions along with thier event.
