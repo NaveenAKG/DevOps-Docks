@@ -1,0 +1,4 @@
+This policy is used to give read permissions 
+By default your S3 Bucket for static website
+will not have the read permissions we add this policy in 
+Permissions - Bucket Policy - Edit - Save Changes
