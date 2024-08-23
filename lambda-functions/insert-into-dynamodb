@@ -1,0 +1,27 @@
+import json
+import boto3
+
+def lambda_handler(event, context):
+    #Establish connection to dynamodb resource
+    client = boto3.resource('dynamodb',region_name='us-east-2')
+    table = client.table('table-name')
+    
+    items_to_insert = {
+        'learners_id' : event[learners_id],
+        'learners_name' : event[learners_name],
+        'learners_location' : event[learners_location]
+    }
+    
+    #Retrive the item from dynamodb table
+    try:
+        response = table.put_item(Item=items_to_insert)
+        return {
+            'statusCode': 200,
+            'body': json.dumps('Item inserted successfully')
+        }
+    except Exception as e:
+        return {
+            'statusCode': 500,
+            'body': json.dumps(str(e))
+        }
+        
